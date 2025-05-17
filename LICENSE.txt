@@ -1,0 +1,82 @@
+BOXFSH CUSTOM LICENSE (v1.0)
+Effective Date: Upon public publication of this repository
+
+---
+
+PURPOSE
+
+This codebase, assets, and platform design belong to BoxFsh — a service and community platform intended for use exclusively by BoxFsh and its partners. It is provided publicly for transparency and collaborative development only within the bounds of BoxFsh's business interest.
+
+This license explicitly forbids the use of this project or any part of it for:
+- Personal reuse
+- Commercial deployment
+- Educational cloning
+- Competing platforms
+
+---
+
+USAGE LIMITATIONS
+
+By viewing or accessing this repository, you agree to the following restrictions:
+
+1. NO COMMERCIAL USE  
+You may not use, adapt, republish, or integrate this code into any product or service, free or paid, without explicit written permission from BoxFsh.
+
+2. NO MODIFICATION FOR PUBLIC USE  
+You may not fork, remix, or repurpose this code into any software, platform, or tool that functions independently from BoxFsh.
+
+3. NO REDISTRIBUTION  
+You may not distribute original or modified versions of this code, either publicly or privately, unless granted express written consent.
+
+4. NO BRANDING USE  
+The name "BoxFsh," its logo, UI/UX design elements, visual identity, business logic (including the Canvas system), payment flows, commission model, and any affiliated systems are protected intellectual property and may not be reused in any way.
+
+---
+
+USAGE REQUESTS
+
+Anyone seeking to use this codebase or any part of the BoxFsh system must:
+- Submit a formal request for permission
+- Provide details of intended use
+- Include visible attribution (if approved)
+- Sign a BoxFsh contributor or licensing agreement (if entering into formal usage)
+
+---
+
+OWNERSHIP
+
+All components of this repository — including code, UI design, written content, flow structure, feature logic, and terminology — are the sole property of BoxFsh (Michael Bedson).
+
+BoxFsh reserves full ownership and the right to:
+- Revoke access
+- Deny use
+- Request removal of derivatives or clones
+
+---
+
+CONTRIBUTIONS
+
+Any contributions made by:
+- Contractors  
+- Partners  
+- Employees  
+- Collaborators
+
+…become the sole intellectual property of BoxFsh unless a written agreement states otherwise.
+
+---
+
+JURISDICTION & LEGAL ENFORCEMENT
+
+This license shall be interpreted under the jurisdiction of Australian law.
+
+Any breach of this license may result in:
+- Public takedown requests (e.g., DMCA)
+- Legal pursuit
+- Revocation of platform access
+
+DISCLAIMER: This code is provided as-is, without warranty of any kind. BoxFsh shall not be liable for any misuse, damages, or loss resulting from unauthorized interaction with the repository or its contents.
+
+---
+
+END OF LICENSE
