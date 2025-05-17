@@ -1,76 +1,39 @@
-const listings = [
-  {
-    title: "Character Sculptor",
-    description: "Custom fantasy miniatures from concept to print-ready STL.",
-    type: "designer",
-    rate: "$30/hr"
-  },
-  {
-    title: "3D Printer Needed",
-    description: "Customer seeking resin prints of 5 tabletop characters.",
-    type: "job",
-    rate: "$90 total"
-  },
-  {
-    title: "Costume Props",
-    description: "Looking for a designer to create fantasy armor in modular pieces.",
-    type: "designer",
-    rate: "$50/hr (negotiable)"
-  },
-  {
-    title: "Custom Board Game Pieces",
-    description: "Producer needed to manufacture prototype tiles and tokens.",
-    type: "producer",
-    rate: "Quote required"
-  }
-];
+// Generate 9 placeholder listings
+const listings = Array.from({ length: 9 }, (_, i) => ({
+  title: "This Spot Is Available",
+  description: "When someone joins BoxFsh, their listing will appear here.",
+  type: "placeholder",
+  rate: "Coming Soon"
+}));
 
 // DOM
 const listingsContainer = document.getElementById("listings");
 const buttons = document.querySelectorAll(".filter-btn");
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDesc = document.getElementById("modal-description");
-const modalRate = document.getElementById("modal-rate");
-const modalClose = document.getElementById("modal-close");
-
-function openModal(listing) {
-  modalTitle.textContent = listing.title;
-  modalDesc.textContent = listing.description;
-  modalRate.textContent = `Rate: ${listing.rate}`;
-  modal.classList.remove("hidden");
-}
-
-function closeModal() {
-  modal.classList.add("hidden");
-}
-// Close modal on button click
-
-modalClose.addEventListener("click", closeModal);
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModal();
-});
-// Close modal on escape key
 
 // Render Listings
 function renderListings(type = "all") {
   listingsContainer.innerHTML = "";
 
-  const filtered = type === "all" ? listings : listings.filter(l => l.type === type);
+  // Show placeholders on all tabs (not just "all")
+  const filtered = listings;
 
-  filtered.forEach(listing => {
+  filtered.forEach((listing, index) => {
     const card = document.createElement("div");
-    card.className = "bg-slate-800 p-6 rounded-xl border border-slate-700 shadow hover:shadow-lg transition cursor-pointer";
+    card.className = "bg-slate-800 p-6 rounded-xl border border-slate-700 shadow transition flex flex-col items-center text-center";
+
     card.innerHTML = `
-      <h2 class="text-xl font-semibold text-teal-400">${listing.title}</h2>
-      <p class="text-slate-300 text-sm mt-2">${listing.description}</p>
-      <p class="text-slate-500 text-xs mt-4">Rate: ${listing.rate}</p>
+      <img src="https://via.placeholder.com/150" alt="Generic User" class="rounded-full border border-slate-600 w-1/2 h-auto mb-4">
+      <h2 class="text-xl font-semibold text-slate-300">${listing.title}</h2>
+      <p class="text-sm text-slate-500">${listing.rate}</p>
+      <p class="text-slate-400 text-sm mt-2">${listing.description}</p>
+      <p class="text-sm text-slate-500 italic mt-4">Join now to claim this spot</p>
     `;
-    card.addEventListener("click", () => openModal(listing));
+
     listingsContainer.appendChild(card);
   });
 }
 
+// Filter buttons (kept in place for future use)
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const type = button.getAttribute("data-type");
@@ -78,10 +41,7 @@ buttons.forEach(button => {
   });
 });
 
+// Start with all placeholders
 document.addEventListener("DOMContentLoaded", () => {
   renderListings();
-});
-// Ensure modal starts hidden on fresh load
-document.addEventListener("DOMContentLoaded", () => {
-  modal.classList.add("hidden");
 });

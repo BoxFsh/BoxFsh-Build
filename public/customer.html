@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Profile | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">BoxFsh</h1>
+    <a href="./listings.html" class="text-teal-400 hover:underline">&#8592; Back to Listings</a>
+  </header>
+
+  <!-- Profile Section -->
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-3xl mx-auto shadow-lg">
+      <!-- Avatar and Name -->
+      <div class="flex items-center space-x-4 mb-6">
+        <img src="https://via.placeholder.com/100" alt="Customer Avatar" class="rounded-full w-24 h-24 border border-slate-600" />
+        <div>
+          <h2 class="text-3xl font-bold text-teal-400">Jessie Maker</h2>
+          <p class="text-slate-400">Customer • Project Seeker</p>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">About</h3>
+        <p class="text-slate-300">
+          I’m looking for skilled creatives to bring my project to life. Whether it's fantasy miniatures, costume props, or something weird and wonderful — I’m here to collaborate.
+        </p>
+      </div>
+
+      <!-- Needs / Project Info -->
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Looking For</h3>
+        <ul class="list-disc list-inside text-slate-300">
+          <li>Someone to design and print a set of custom RPG tokens</li>
+          <li>Quick turnaround (within 2 weeks)</li>
+          <li>Willing to collaborate on unusual projects</li>
+        </ul>
+      </div>
+
+      <!-- Contact / CTA -->
+      <button class="bg-teal-500 hover:bg-teal-400 text-white font-semibold py-2 px-4 rounded-xl transition w-full">
+        Send a Proposal
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-10">
+    Built with care by BoxFsh. 🐟
+  </footer>
+
+</body>
+</html>

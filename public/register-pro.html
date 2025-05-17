@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register as a Pro | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">BoxFsh</h1>
+    <a href="./dashboard.html" class="text-teal-400 hover:underline">← Back to Dashboard</a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-3xl mx-auto shadow-lg">
+      <h2 class="text-2xl font-bold text-teal-400 mb-4 text-center">Become a Professional</h2>
+      <p class="text-slate-300 text-center mb-6">You can choose one or both roles below. This lets you offer services to customers and get featured in professional listings.</p>
+
+      <form class="space-y-6">
+        <!-- Designer Option -->
+        <div class="flex items-center bg-slate-700 p-4 rounded-xl border border-slate-600">
+          <input type="checkbox" id="designer" name="role" value="designer" class="w-5 h-5 mr-3">
+          <label for="designer" class="text-lg font-semibold">Designer</label>
+        </div>
+
+        <!-- Producer Option -->
+        <div class="flex items-center bg-slate-700 p-4 rounded-xl border border-slate-600">
+          <input type="checkbox" id="producer" name="role" value="producer" class="w-5 h-5 mr-3">
+          <label for="producer" class="text-lg font-semibold">Producer</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full bg-teal-500 hover:bg-teal-400 text-white font-semibold py-2 px-4 rounded-xl transition">
+          Complete Registration
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-10">
+    Built with care by BoxFsh. 🐟
+  </footer>
+
+</body>
+</html>
