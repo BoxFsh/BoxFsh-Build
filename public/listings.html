@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoxFsh | Listings</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen">
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-slate-900/80 backdrop-blur border-b border-slate-700 px-6 py-4 flex items-center justify-between z-50">
+    <h1 class="text-2xl font-bold">Listings</h1>
+    <a href="./index.html" class="text-sm text-teal-400 hover:underline">← Back to Home</a>
+  </header>
+
+  <!-- Filter (non-functional for now) -->
+  <section class="px-6 py-4 border-b border-slate-700">
+    <div class="max-w-6xl mx-auto flex flex-wrap gap-4">
+      <button class="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">All</button>
+      <button class="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Designers</button>
+      <button class="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Producers</button>
+      <button class="px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Jobs</button>
+    </div>
+  </section>
+
+  const listings = [
+  {
+    title: "Character Sculptor",
+    description: "Custom fantasy miniatures from concept to print-ready STL.",
+    type: "designer",
+    rate: "$30/hr"
+  },
+  {
+    title: "3D Printer Needed",
+    description: "Customer seeking resin prints of 5 tabletop characters.",
+    type: "job",
+    rate: "$90 total"
+  },
+  {
+    title: "Costume Props",
+    description: "Looking for a designer to create fantasy armor in modular pieces.",
+    type: "designer",
+    rate: "$50/hr (negotiable)"
+  },
+  {
+    title: "Custom Board Game Pieces",
+    description: "Producer needed to manufacture prototype tiles and tokens.",
+    type: "producer",
+    rate: "Quote required"
+  }
+];
+
+const listingsContainer = document.getElementById("listings");
+
+listings.forEach(listing => {
+  const card = document.createElement("div");
+  card.className = "bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition";
+
+  card.innerHTML = `
+    <h2 class="text-xl font-semibold text-teal-400">${listing.title}</h2>
+    <p class="text-slate-300 text-sm mt-2">${listing.description}</p>
+    <p class="text-slate-500 text-xs mt-4">Rate: ${listing.rate}</p>
+  `;
+
+  listingsContainer.appendChild(card);
+});
+
+    
+    <!-- Example Listing Card -->
+    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-teal-400">Character Sculptor</h2>
+      <p class="text-slate-300 text-sm mt-2">Custom fantasy miniatures from concept to print-ready STL.</p>
+      <p class="text-slate-500 text-xs mt-4">Rate: $30/hr</p>
+    </div>
+
+    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-teal-400">3D Printer Needed</h2>
+      <p class="text-slate-300 text-sm mt-2">Customer seeking resin prints of 5 tabletop characters.</p>
+      <p class="text-slate-500 text-xs mt-4">Budget: $90 total</p>
+    </div>
+
+    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-teal-400">Costume Props</h2>
+      <p class="text-slate-300 text-sm mt-2">Looking for a designer to create fantasy armor in modular pieces.</p>
+      <p class="text-slate-500 text-xs mt-4">Rate: $50/hr (negotiable)</p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 p-6 text-center text-slate-400 text-sm">
+    Powered by BoxFsh. 🐟 Listings refresh daily.
+  </footer>
+
+  <script src="./js/listings.js"></script>
+</body>
+</html>
