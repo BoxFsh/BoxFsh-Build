@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* style.css or add in input.css */
+#modal.hidden {
+  display: none !important;
+}

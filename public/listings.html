@@ -6,7 +6,13 @@
   <title>BoxFsh | Listings</title>
   <link href="./style.css" rel="stylesheet" />
 </head>
-<body class="bg-slate-900 text-white font-sans flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-slate-900 text-white font-sans">
+  <!-- content above -->
+
+  <footer class="mt-auto bg-slate-800 p-6 text-center text-slate-400 text-sm">
+    Powered by BoxFsh. <span class="text-cyan-500">🐟</span> Listings refresh daily.
+  </footer>
+</body>
 
 
   <!-- Header -->
@@ -35,9 +41,9 @@
     Powered by BoxFsh. 🐟 Listings refresh daily.
   </footer>
 
-  <!-- Modal (starts hidden) -->
+<!-- Modal -->
 <div id="modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden">
-  <div class="flex items-center justify-center w-full h-full">
+  <div class="flex items-center justify-center w-full h-screen">
     <div class="bg-slate-800 p-6 rounded-xl max-w-md w-full border border-slate-700 relative">
       <button id="modal-close" class="absolute top-2 right-2 text-white hover:text-teal-400 text-xl">&times;</button>
       <h2 id="modal-title" class="text-2xl font-bold text-teal-400 mb-2"></h2>
@@ -46,7 +52,7 @@
     </div>
   </div>
 </div>
-  <!-- Modal (ends) -->
+
 
   <script src="./js/listings.js"></script>
 </body>

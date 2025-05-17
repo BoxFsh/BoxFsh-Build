@@ -44,6 +44,7 @@ function openModal(listing) {
 function closeModal() {
   modal.classList.add("hidden");
 }
+// Close modal on button click
 
 modalClose.addEventListener("click", closeModal);
 modal.addEventListener("click", (e) => {
@@ -79,4 +80,8 @@ buttons.forEach(button => {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderListings();
+});
+// Ensure modal starts hidden on fresh load
+document.addEventListener("DOMContentLoaded", () => {
+  modal.classList.add("hidden");
 });
