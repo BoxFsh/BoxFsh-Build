@@ -25,7 +25,9 @@ const listings = [
   }
 ];
 
-// Modal Elements
+// DOM
+const listingsContainer = document.getElementById("listings");
+const buttons = document.querySelectorAll(".filter-btn");
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDesc = document.getElementById("modal-description");
@@ -47,19 +49,17 @@ modalClose.addEventListener("click", closeModal);
 modal.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
+// Close modal on escape key
 
-// Listings Render
-const listingsContainer = document.getElementById("listings");
-const buttons = document.querySelectorAll(".filter-btn");
-
-function renderListings(filter = "all") {
+// Render Listings
+function renderListings(type = "all") {
   listingsContainer.innerHTML = "";
 
-  const filtered = filter === "all" ? listings : listings.filter(l => l.type === filter);
+  const filtered = type === "all" ? listings : listings.filter(l => l.type === type);
 
   filtered.forEach(listing => {
     const card = document.createElement("div");
-    card.className = "bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition cursor-pointer";
+    card.className = "bg-slate-800 p-6 rounded-xl border border-slate-700 shadow hover:shadow-lg transition cursor-pointer";
     card.innerHTML = `
       <h2 class="text-xl font-semibold text-teal-400">${listing.title}</h2>
       <p class="text-slate-300 text-sm mt-2">${listing.description}</p>
@@ -72,8 +72,8 @@ function renderListings(filter = "all") {
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    const filterType = button.getAttribute("data-type");
-    renderListings(filterType);
+    const type = button.getAttribute("data-type");
+    renderListings(type);
   });
 });
 
