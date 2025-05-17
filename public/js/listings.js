@@ -25,9 +25,7 @@ const listings = [
   }
 ];
 
-const listingsContainer = document.getElementById("listings");
-const buttons = document.querySelectorAll(".filter-btn");
-
+// Modal Elements
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDesc = document.getElementById("modal-description");
@@ -50,23 +48,23 @@ modal.addEventListener("click", (e) => {
   if (e.target === modal) closeModal();
 });
 
-function renderListings(filterType = "all") {
+// Listings Render
+const listingsContainer = document.getElementById("listings");
+const buttons = document.querySelectorAll(".filter-btn");
+
+function renderListings(filter = "all") {
   listingsContainer.innerHTML = "";
 
-  const filtered = filterType === "all"
-    ? listings
-    : listings.filter(listing => listing.type === filterType);
+  const filtered = filter === "all" ? listings : listings.filter(l => l.type === filter);
 
   filtered.forEach(listing => {
     const card = document.createElement("div");
     card.className = "bg-slate-800 rounded-xl p-6 border border-slate-700 shadow hover:shadow-lg transition cursor-pointer";
-
     card.innerHTML = `
       <h2 class="text-xl font-semibold text-teal-400">${listing.title}</h2>
       <p class="text-slate-300 text-sm mt-2">${listing.description}</p>
       <p class="text-slate-500 text-xs mt-4">Rate: ${listing.rate}</p>
     `;
-
     card.addEventListener("click", () => openModal(listing));
     listingsContainer.appendChild(card);
   });
@@ -74,9 +72,11 @@ function renderListings(filterType = "all") {
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    const type = button.getAttribute("data-type");
-    renderListings(type);
+    const filterType = button.getAttribute("data-type");
+    renderListings(filterType);
   });
 });
 
-renderListings();
+document.addEventListener("DOMContentLoaded", () => {
+  renderListings();
+});
