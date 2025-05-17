@@ -47,7 +47,7 @@ function closeModal() {
 
 modalClose.addEventListener("click", closeModal);
 modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModal(); // click outside closes
+  if (e.target === modal) closeModal();
 });
 
 function renderListings(filterType = "all") {
@@ -72,7 +72,6 @@ function renderListings(filterType = "all") {
   });
 }
 
-// Filter button clicks
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const type = button.getAttribute("data-type");
@@ -80,5 +79,4 @@ buttons.forEach(button => {
   });
 });
 
-// Initial load
 renderListings();

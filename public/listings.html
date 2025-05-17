@@ -14,38 +14,35 @@
     <a href="./index.html" class="text-sm text-teal-400 hover:underline">← Back to Home</a>
   </header>
 
-  <!-- Filter Buttons (visual only for now) -->
+  <!-- Filter Buttons -->
   <section class="px-6 py-4 border-b border-slate-700">
-  <div id="filter-buttons" class="max-w-6xl mx-auto flex flex-wrap gap-4">
-    <button data-type="all" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">All</button>
-    <button data-type="designer" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Designers</button>
-    <button data-type="producer" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Producers</button>
-    <button data-type="job" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Jobs</button>
-  </div>
-</section>
+    <div id="filter-buttons" class="max-w-6xl mx-auto flex flex-wrap gap-4">
+      <button data-type="all" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">All</button>
+      <button data-type="designer" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Designers</button>
+      <button data-type="producer" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Producers</button>
+      <button data-type="job" class="filter-btn px-4 py-2 bg-slate-700 rounded hover:bg-slate-600 text-sm">Jobs</button>
+    </div>
+  </section>
 
   <!-- Listings Grid -->
-  <main id="listings" class="max-w-6xl mx-auto px-6 py-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    <!-- Cards will be injected here -->
-  </main>
+  <main id="listings" class="max-w-6xl mx-auto px-6 py-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></main>
 
   <!-- Footer -->
   <footer class="bg-slate-800 p-6 text-center text-slate-400 text-sm">
     Powered by BoxFsh. 🐟 Listings refresh daily.
   </footer>
 
-  <!-- Load Listings Script -->
-  <script src="./js/listings.js"></script>
-
   <!-- Modal -->
-<div id="modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-  <div class="bg-slate-800 p-6 rounded-xl max-w-md w-full border border-slate-700 relative">
-    <button id="modal-close" class="absolute top-2 right-2 text-white hover:text-teal-400 text-xl">&times;</button>
-    <h2 id="modal-title" class="text-2xl font-bold text-teal-400 mb-2"></h2>
-    <p id="modal-description" class="text-slate-300 text-sm mb-4"></p>
-    <p id="modal-rate" class="text-slate-500 text-sm"></p>
+  <div id="modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center h-screen">
+    <div class="bg-slate-800 p-6 rounded-xl max-w-md w-full border border-slate-700 relative">
+      <button id="modal-close" class="absolute top-2 right-2 text-white hover:text-teal-400 text-xl">&times;</button>
+      <h2 id="modal-title" class="text-2xl font-bold text-teal-400 mb-2"></h2>
+      <p id="modal-description" class="text-slate-300 text-sm mb-4"></p>
+      <p id="modal-rate" class="text-slate-500 text-sm"></p>
+    </div>
   </div>
-</div>
 
+  <!-- Listings Script -->
+  <script src="./js/listings.js"></script>
 </body>
 </html>
