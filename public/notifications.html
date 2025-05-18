@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Notifications</h1>
+    <a href="./dashboard.html" class="text-teal-400 hover:underline">← Back to Dashboard</a>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-2xl mx-auto shadow-lg">
+      <h2 class="text-xl font-bold text-teal-400 mb-4 text-center">Latest Updates</h2>
+
+      <ul class="space-y-4" id="notificationList">
+        <li class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+          <p class="text-sm text-slate-400 mb-1">New Message</p>
+          <p class="text-white">Jessie Maker replied to your message about "Cosplay Armor Concept"</p>
+        </li>
+
+        <li class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+          <p class="text-sm text-slate-400 mb-1">Job Update</p>
+          <p class="text-white">Your posted job "3D Mask Prototype" received a new quote from AlexDesigns.</p>
+        </li>
+
+        <li class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+          <p class="text-sm text-slate-400 mb-1">Platform Notice</p>
+          <p class="text-white">New tagging options added! You can now label work as eco-friendly, quick turnaround and more.</p>
+        </li>
+      </ul>
+
+      <p class="text-center text-slate-500 text-sm mt-6 italic">More notification controls coming soon.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-10">
+    Built with care by BoxFsh. 🐟
+  </footer>
+
+</body>
+</html>

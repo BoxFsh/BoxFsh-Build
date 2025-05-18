@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Job | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Create a Job</h1>
+    <a href="./dashboard.html" class="text-teal-400 hover:underline">← Back to Dashboard</a>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-10">
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-3xl mx-auto shadow-lg">
+      <h2 class="text-xl font-bold text-teal-400 mb-6 text-center">Post Your Project</h2>
+
+      <form id="jobForm" class="space-y-6" enctype="multipart/form-data">
+        <div>
+          <label for="title" class="block text-sm mb-1">Project Title</label>
+          <input type="text" id="title" name="title" class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400" required>
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm mb-1">Project Description</label>
+          <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400" required></textarea>
+        </div>
+
+        <div>
+          <label for="budget" class="block text-sm mb-1">Your Budget (AUD)</label>
+          <input type="number" id="budget" name="budget" class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400" required>
+        </div>
+
+        <div>
+          <label for="deadline" class="block text-sm mb-1">Preferred Deadline</label>
+          <input type="date" id="deadline" name="deadline" class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400">
+        </div>
+
+        <!-- Category Tags -->
+        <div>
+          <label class="block text-sm mb-1">Select Relevant Tags</label>
+          <select id="tags" name="tags" multiple class="w-full h-48 px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400">
+            <option>Heat Resistant</option>
+            <option>High Tensile</option>
+            <option>Aesthetic Finish</option>
+            <option>High Precision</option>
+            <option>Durability</option>
+            <option>Flexibility</option>
+            <option>Lightweight</option>
+            <option>UV Resistant</option>
+            <option>Waterproof</option>
+            <option>Weatherproof</option>
+            <option>Textile Work</option>
+            <option>Metal Cutting</option>
+            <option>Wood Finishing</option>
+            <option>3D Sculpting</option>
+            <option>CAD Design</option>
+            <option>Custom Electronics</option>
+            <option>Resin Print</option>
+            <option>FDM Print</option>
+            <option>PLA Material</option>
+            <option>ABS Material</option>
+            <option>TPU Material</option>
+            <option>SLA Print</option>
+            <option>Textile Dyeing</option>
+            <option>Foamwork</option>
+            <option>Armature Building</option>
+            <option>Mold Making</option>
+            <option>Welding</option>
+            <option>Embroidery</option>
+            <option>Chainmail Craft</option>
+            <option>Mechanical Parts</option>
+            <option>Tooling Design</option>
+            <option>Soft Goods</option>
+            <option>Props</option>
+            <option>Cosplay</option>
+            <option>Set Design</option>
+            <option>Miniatures</option>
+            <option>Armor Building</option>
+            <option>Mask Making</option>
+            <option>3D Modeling</option>
+            <option>Rapid Prototyping</option>
+            <option>Costume Tailoring</option>
+            <option>Latex Work</option>
+            <option>Custom Paint</option>
+            <option>Decals</option>
+            <option>Magnet Mounting</option>
+            <option>LED Integration</option>
+            <option>RGB Lighting</option>
+            <option>Wearables</option>
+            <option>Interactive Elements</option>
+            <option>Structural Framework</option>
+            <option>Adhesives</option>
+            <option>Leatherwork</option>
+            <option>Vacuum Forming</option>
+            <option>Soft Robotics</option>
+            <option>Textured Surface</option>
+            <option>High Detail</option>
+            <option>Color Matching</option>
+            <option>Material Sourcing</option>
+            <option>Concept Design</option>
+            <option>Blueprint Conversion</option>
+            <option>Digital Sculpture</option>
+            <option>Photogrammetry</option>
+            <option>Topological Optimization</option>
+            <option>Functional Part</option>
+            <option>Assembly Required</option>
+            <option>Packaging</option>
+            <option>Custom Enclosure</option>
+            <option>Metal Casting</option>
+            <option>Eco-Friendly</option>
+            <option>Batch Production</option>
+            <option>Solo Build</option>
+            <option>Collaboration</option>
+            <option>Experimental</option>
+            <option>Client Facing</option>
+            <option>Workshop Required</option>
+            <option>On-Site Installation</option>
+            <option>Quick Turnaround</option>
+            <option>Print Ready</option>
+            <option>Blueprint Needed</option>
+          </select>
+        </div>
+
+        <!-- Reference Image Upload -->
+        <div>
+          <label for="refImage" class="block text-sm mb-1">Upload Reference Image (Optional)</label>
+          <input type="file" id="refImage" name="refImage" accept="image/*" class="w-full px-4 py-2 rounded bg-slate-900 border border-slate-700 focus:outline-none focus:border-teal-400">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="bg-teal-500 hover:bg-teal-400 text-white font-semibold py-2 px-6 rounded-xl transition">Submit Job</button>
+        </div>
+      </form>
+
+      <p id="confirmation" class="text-green-400 text-center mt-6 hidden">✔️ Your project has been submitted!</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-10">
+    Built with care by BoxFsh. 🐟
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const form = document.getElementById('jobForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      confirmation.classList.remove('hidden');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,47 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard | BoxFsh</title>
-  <link href="./style.css" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet">
 </head>
 <body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
 
+  <!-- Welcome Modal -->
+  <div id="welcomeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 w-full max-w-md shadow-xl">
+      <h2 class="text-xl font-bold text-teal-400 mb-2">Welcome to your Dashboard!</h2>
+      <p class="text-slate-300 mb-4">Ready to explore? Click below to start the guided tour.</p>
+      <div class="flex justify-between">
+        <button onclick="startTour()" class="bg-teal-500 hover:bg-teal-400 text-white py-2 px-4 rounded">Take the Tour</button>
+        <button onclick="skipTour()" class="text-sm text-slate-400 underline">Skip All</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
-    <h1 class="text-2xl font-bold">BoxFsh Dashboard</h1>
-    <a href="./index.html" class="text-teal-400 hover:underline">Home</a>
+    <h1 class="text-2xl font-bold">Dashboard</h1>
+    <a href="./index.html" class="text-teal-400 hover:underline">← Home</a>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow container mx-auto px-4 py-10">
-    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-3xl mx-auto shadow-lg">
-      <!-- Welcome Message -->
-      <h2 class="text-2xl font-bold text-teal-400 mb-4">Welcome, Jessie!</h2>
-      <p class="text-slate-300 mb-6">You're currently registered as a customer. Here you can view your posted jobs, track activity, and access support.</p>
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
 
-      <!-- Job Status Section -->
-      <div class="mb-8">
-        <h3 class="text-xl font-semibold mb-2">Your Jobs</h3>
-        <p class="text-slate-400">You haven't posted any jobs yet. Once you do, they'll show up here.</p>
-      </div>
+    <!-- Messages -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700" id="step1">
+      <h2 class="text-lg font-semibold text-teal-400 mb-2">Messages</h2>
+      <p class="text-slate-400">You have 2 new messages.</p>
+      <a href="./inbox.html" class="text-teal-400 underline text-sm">View Inbox</a>
+    </section>
 
-      <!-- Upgrade CTA -->
-      <div class="text-center mt-10">
-        <h3 class="text-xl font-semibold text-slate-200 mb-3">Want to offer your own services?</h3>
-        <p class="text-slate-400 mb-4">Become a Designer or Producer and get featured in listings.</p>
-        <a href="./register-pro.html" class="inline-block bg-teal-500 hover:bg-teal-400 text-white font-semibold py-2 px-6 rounded-xl transition">
-          Become a Professional
-        </a>
-      </div>
+    <!-- Notifications -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700" id="step2">
+      <h2 class="text-lg font-semibold text-teal-400 mb-2">Notifications</h2>
+      <p class="text-slate-400">3 recent alerts available.</p>
+      <a href="./notifications.html" class="text-teal-400 underline text-sm">See Notifications</a>
+    </section>
+
+    <!-- Active Jobs -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700" id="step3">
+      <h2 class="text-lg font-semibold text-teal-400 mb-2">Active Jobs</h2>
+      <p class="text-slate-400">You are currently managing 1 open job.</p>
+      <a href="./job.html" class="text-teal-400 underline text-sm">Go to Jobs</a>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700" id="step4">
+      <h2 class="text-lg font-semibold text-teal-400 mb-2">Quick Actions</h2>
+      <ul class="list-disc list-inside text-slate-300">
+        <li><a href="./profile-editor.html" class="text-teal-400 underline">Edit Profile</a></li>
+        <li><a href="./job_creation.html" class="text-teal-400 underline">Post a Job</a></li>
+        <li><a href="./listings-submission.html" class="text-teal-400 underline">Submit Listing</a></li>
+      </ul>
+    </section>
+
+    <!-- Tour Restart Button -->
+    <div class="text-center pt-8">
+      <button onclick="startTour(true)" class="text-sm text-teal-400 underline">Dashboard Tour</button>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-10">
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto">
     Built with care by BoxFsh. 🐟
   </footer>
+
+  <!-- Tour Script -->
+  <script>
+    let step = 0;
+    const steps = ["step1", "step2", "step3", "step4"];
+    let tourModal;
+
+    function startTour(reset = false) {
+      step = 0;
+      document.getElementById("welcomeModal").classList.add("hidden");
+      if (reset) localStorage.removeItem("tourComplete");
+      showTourModal();
+    }
+
+    function skipTour() {
+      document.getElementById("welcomeModal").classList.add("hidden");
+      localStorage.setItem("tourComplete", true);
+    }
+
+    function showTourModal() {
+      if (tourModal) tourModal.remove();
+      if (step >= steps.length) {
+        localStorage.setItem("tourComplete", true);
+        return;
+      }
+
+      const element = document.getElementById(steps[step]);
+      const rect = element.getBoundingClientRect();
+      const modal = document.createElement("div");
+      modal.className = "fixed z-50 bg-slate-800 border border-teal-400 rounded-xl p-4 shadow-xl";
+      modal.style.top = `${rect.top + window.scrollY - 10}px`;
+      modal.style.left = `${rect.left + window.scrollX}px`;
+      modal.innerHTML = `
+        <h3 class="text-lg font-bold text-teal-400 mb-1">Tour Step ${step + 1}</h3>
+        <p class="text-slate-300 text-sm mb-2">This section shows your ${steps[step].replace("step", "").trim()}.</p>
+        <div class="text-right">
+          <button onclick="nextStep()" class="bg-teal-500 hover:bg-teal-400 text-white text-sm px-3 py-1 rounded">Next</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      tourModal = modal;
+    }
+
+    function nextStep() {
+      step++;
+      showTourModal();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (!localStorage.getItem("tourComplete")) {
+        document.getElementById("welcomeModal").classList.remove("hidden");
+      }
+    });
+  </script>
 
 </body>
 </html>
