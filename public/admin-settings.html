@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Settings | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Site Settings</h1>
+    <a href="./admin.html" class="text-teal-400 hover:underline">← Back to Admin</a>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
+
+    <!-- Commission Control -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+      <h2 class="text-lg font-semibold text-teal-400">Commission Settings</h2>
+      <label class="block text-sm text-slate-300">Base Site Commission (%):</label>
+      <input type="number" id="commissionInput" class="w-32 px-3 py-2 rounded bg-slate-700 text-white" value="5" min="0" max="100" />
+      <button onclick="saveCommission()" class="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded text-sm">Save</button>
+      <p id="commissionSaved" class="text-green-400 text-sm hidden">✅ Commission updated</p>
+    </section>
+
+    <!-- Feature Toggles -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+      <h2 class="text-lg font-semibold text-teal-400">Feature Toggles</h2>
+      <div class="space-y-2">
+        <label class="flex items-center gap-3">
+          <input type="checkbox" checked id="toggleCanvas" />
+          <span>Enable Canvas Workspace</span>
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" checked id="toggleMessaging" />
+          <span>Enable Direct Messaging</span>
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" checked id="toggleForum" />
+          <span>Enable Community Forum</span>
+        </label>
+        <label class="flex items-center gap-3">
+          <input type="checkbox" id="toggleMaintenance" />
+          <span>Maintenance Mode</span>
+        </label>
+      </div>
+      <button onclick="saveFeatures()" class="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded text-sm">Save Toggles</button>
+      <p id="featureSaved" class="text-green-400 text-sm hidden">✅ Features updated</p>
+    </section>
+
+    <!-- Job Rules -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+      <h2 class="text-lg font-semibold text-teal-400">Platform Rules</h2>
+      <label class="block text-sm text-slate-300">Minimum Job Value ($AUD):</label>
+      <input type="number" id="minJobInput" class="w-32 px-3 py-2 rounded bg-slate-700 text-white" value="15" min="1" />
+      <label class="block text-sm text-slate-300 mt-4">Referral Bonus Credit ($AUD):</label>
+      <input type="number" id="referralInput" class="w-32 px-3 py-2 rounded bg-slate-700 text-white" value="10" min="0" />
+      <button onclick="saveRules()" class="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded text-sm mt-4">Save Rules</button>
+      <p id="rulesSaved" class="text-green-400 text-sm hidden">✅ Rules saved</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto">
+    Final lever pulled. You run the reef now. 🐟🎛️
+  </footer>
+
+  <!-- Settings Script -->
+  <script>
+    function saveCommission() {
+      const value = document.getElementById("commissionInput").value;
+      console.log("Commission set to", value + "%");
+      document.getElementById("commissionSaved").classList.remove("hidden");
+      setTimeout(() => document.getElementById("commissionSaved").classList.add("hidden"), 2000);
+    }
+
+    function saveFeatures() {
+      const features = {
+        canvas: document.getElementById("toggleCanvas").checked,
+        messaging: document.getElementById("toggleMessaging").checked,
+        forum: document.getElementById("toggleForum").checked,
+        maintenance: document.getElementById("toggleMaintenance").checked,
+      };
+      console.log("Feature toggles:", features);
+      document.getElementById("featureSaved").classList.remove("hidden");
+      setTimeout(() => document.getElementById("featureSaved").classList.add("hidden"), 2000);
+    }
+
+    function saveRules() {
+      const minJob = document.getElementById("minJobInput").value;
+      const referral = document.getElementById("referralInput").value;
+      console.log("Minimum job: $" + minJob, "Referral bonus: $" + referral);
+      document.getElementById("rulesSaved").classList.remove("hidden");
+      setTimeout(() => document.getElementById("rulesSaved").classList.add("hidden"), 2000);
+    }
+  </script>
+
+</body>
+</html>

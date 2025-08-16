@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disputes | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Dispute Resolution</h1>
+    <a href="./admin.html" class="text-teal-400 hover:underline">← Back to Admin</a>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
+
+    <!-- Total Disputes Counter -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700 text-center">
+      <h2 class="text-lg font-semibold text-teal-400 mb-2">Disputes Overview</h2>
+      <p class="text-slate-300 text-sm">Total Disputes: <span class="text-white font-bold text-xl">3</span> | Open: <span class="text-yellow-400 font-bold">2</span> | Resolved: <span class="text-green-400 font-bold">1</span></p>
+    </section>
+
+    <!-- Disputes Table -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">Active Disputes</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="py-2">Job ID</th>
+              <th class="py-2">Customer</th>
+              <th class="py-2">Professional</th>
+              <th class="py-2">Reason</th>
+              <th class="py-2">Status</th>
+              <th class="py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-200">
+            <tr class="border-b border-slate-800 hover:bg-slate-700 transition">
+              <td class="py-2">#BFJ2031</td>
+              <td class="py-2">AnnaVibes</td>
+              <td class="py-2">MouldMaster</td>
+              <td class="py-2">Missed delivery deadline</td>
+              <td class="py-2 text-yellow-400">Open</td>
+              <td class="py-2">
+                <button onclick="viewJob('BFJ2031')" class="bg-teal-500 hover:bg-teal-400 text-white px-3 py-1 rounded text-xs">View</button>
+              </td>
+            </tr>
+            <tr class="border-b border-slate-800 hover:bg-slate-700 transition">
+              <td class="py-2">#BFJ1987</td>
+              <td class="py-2">TinkerTim</td>
+              <td class="py-2">FlexiPrint</td>
+              <td class="py-2">Wrong dimensions delivered</td>
+              <td class="py-2 text-yellow-400">Open</td>
+              <td class="py-2">
+                <button onclick="viewJob('BFJ1987')" class="bg-teal-500 hover:bg-teal-400 text-white px-3 py-1 rounded text-xs">View</button>
+              </td>
+            </tr>
+            <tr class="border-b border-slate-800 hover:bg-slate-700 transition">
+              <td class="py-2">#BFJ1901</td>
+              <td class="py-2">ZBrushZane</td>
+              <td class="py-2">PrecisionPrints</td>
+              <td class="py-2">No response post-payment</td>
+              <td class="py-2 text-green-400">Resolved</td>
+              <td class="py-2">
+                <button onclick="viewJob('BFJ1901')" class="bg-teal-500 hover:bg-teal-400 text-white px-3 py-1 rounded text-xs">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Dispute Details Modal (Dynamic Placeholder) -->
+    <div id="disputeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 w-full max-w-2xl shadow-xl relative">
+        <button onclick="closeModal()" class="absolute top-2 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+        <h3 class="text-xl font-bold text-teal-400 mb-4">Job #<span id="modalJobId">[ID]</span></h3>
+        <p class="text-slate-300 text-sm mb-2">Customer: <strong id="modalCustomer">Loading...</strong></p>
+        <p class="text-slate-300 text-sm mb-2">Professional: <strong id="modalPro">Loading...</strong></p>
+        <p class="text-slate-300 text-sm mb-4">Dispute Reason: <span id="modalReason">Loading...</span></p>
+        <div class="bg-slate-700 p-4 rounded-lg text-sm text-slate-200">
+          <p><strong>Scope:</strong> Custom articulated cosplay gauntlet, 8-day turnaround.</p>
+          <p><strong>Terms:</strong> Delivered as STL + optional finished print. 50% deposit, 50% on delivery.</p>
+          <p><strong>Timestamps:</strong> Order: May 2 | Scope Accepted: May 3 | Delivery Missed: May 12</p>
+        </div>
+        <div class="mt-4 text-right">
+          <button class="bg-green-500 hover:bg-green-400 text-white px-4 py-2 rounded text-sm">Mark Resolved</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto">
+    Every case counts. 🧾 Resolve with grace, Admin Fish.
+  </footer>
+
+  <!-- Modal Script -->
+  <script>
+    function viewJob(jobId) {
+      document.getElementById("modalJobId").textContent = jobId;
+
+      // Fake static modal info — this will eventually pull live job data
+      if (jobId === "BFJ2031") {
+        document.getElementById("modalCustomer").textContent = "AnnaVibes";
+        document.getElementById("modalPro").textContent = "MouldMaster";
+        document.getElementById("modalReason").textContent = "Missed delivery deadline";
+      } else if (jobId === "BFJ1987") {
+        document.getElementById("modalCustomer").textContent = "TinkerTim";
+        document.getElementById("modalPro").textContent = "FlexiPrint";
+        document.getElementById("modalReason").textContent = "Wrong dimensions delivered";
+      } else {
+        document.getElementById("modalCustomer").textContent = "ZBrushZane";
+        document.getElementById("modalPro").textContent = "PrecisionPrints";
+        document.getElementById("modalReason").textContent = "No response post-payment";
+      }
+
+      document.getElementById("disputeModal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("disputeModal").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Armchair | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center border-b border-slate-700">
+    <h1 class="text-2xl font-bold tracking-wide">🛋️ The Armchair</h1>
+    <a href="./index.html" class="text-teal-400 hover:underline text-sm">← Back to Site</a>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
+
+    <!-- System Stats -->
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+  <h2 class="text-xl font-semibold text-teal-400 mb-4">📊 System Snapshot</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="bg-slate-700 p-4 rounded-lg text-center">
+      <p class="text-sm text-slate-300 mb-1">Users</p>
+      <p id="userCount" class="text-2xl font-bold text-white">—</p>
+    </div>
+    <div class="bg-slate-700 p-4 rounded-lg text-center">
+      <p class="text-sm text-slate-300 mb-1">Disputes</p>
+      <p id="disputeCount" class="text-2xl font-bold text-yellow-400">—</p>
+    </div>
+    <div class="bg-slate-700 p-4 rounded-lg text-center">
+      <p class="text-sm text-slate-300 mb-1">Active Jobs</p>
+      <p id="jobCount" class="text-2xl font-bold text-green-400">—</p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Admin Tools Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold text-teal-400 mb-1">👥 User Controls</h3>
+          <p class="text-sm text-slate-300">Moderate users, view flags, ban or warn troublemakers.</p>
+        </div>
+        <a href="./admin-users.html" class="mt-4 bg-teal-500 hover:bg-teal-400 text-white text-sm px-4 py-2 rounded text-center">Open User Panel</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold text-teal-400 mb-1">⚖️ Dispute Manager</h3>
+          <p class="text-sm text-slate-300">Resolve cases quickly with linked scope + job data.</p>
+        </div>
+        <a href="./admin-disputes.html" class="mt-4 bg-teal-500 hover:bg-teal-400 text-white text-sm px-4 py-2 rounded text-center">Open Dispute Panel</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold text-teal-400 mb-1">🛠️ Job Oversight</h3>
+          <p class="text-sm text-slate-300">Monitor live job activity, control status and completion.</p>
+        </div>
+        <a href="./admin-jobs.html" class="mt-4 bg-teal-500 hover:bg-teal-400 text-white text-sm px-4 py-2 rounded text-center">Open Jobs Panel</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold text-teal-400 mb-1">📜 System Logs</h3>
+          <p class="text-sm text-slate-300">Track every click, flag, and admin action — searchable logs.</p>
+        </div>
+        <a href="./admin-logs.html" class="mt-4 bg-teal-500 hover:bg-teal-400 text-white text-sm px-4 py-2 rounded text-center">View Logs</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between space-y-4 md:col-span-2">
+        <div>
+          <h3 class="text-lg font-semibold text-teal-400 mb-1">⚙️ Global Settings</h3>
+          <p class="text-sm text-slate-300">Tweak commissions, job rules, feature access, and referral bonuses.</p>
+        </div>
+        <a href="./admin-settings.html" class="mt-4 bg-teal-500 hover:bg-teal-400 text-white text-sm px-4 py-2 rounded text-center">Edit Settings</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto border-t border-slate-700">
+    🛋️ All systems nominal. Awaiting next command, BossFish.
+  </footer>
+  
+<script>
+  fetch('data.json')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("userCount").textContent = data.users;
+      document.getElementById("disputeCount").textContent = data.disputes;
+      document.getElementById("jobCount").textContent = data.jobs;
+    })
+    .catch(err => {
+      console.error("Failed to load data:", err);
+    });
+</script>
+
+</body>
+</html>

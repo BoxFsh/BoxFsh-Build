@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Admin Panel</h1>
+    <a href="./dashboard.html" class="text-teal-400 hover:underline">← Dashboard</a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
+
+    <!-- Admin Tools Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-lg font-semibold text-teal-400 mb-2">User Moderation</h2>
+        <p class="text-slate-400 text-sm mb-4">Ban, warn, or review users and activity logs.</p>
+        <a href="./admin-users.html" class="bg-teal-500 hover:bg-teal-400 text-white text-sm py-2 px-4 rounded">Open</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-lg font-semibold text-teal-400 mb-2">Dispute Resolution</h2>
+        <p class="text-slate-400 text-sm mb-4">View and manage flagged project disputes.</p>
+        <a href="./admin-disputes.html" class="bg-teal-500 hover:bg-teal-400 text-white text-sm py-2 px-4 rounded">Open</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-lg font-semibold text-teal-400 mb-2">Job Oversight</h2>
+        <p class="text-slate-400 text-sm mb-4">Monitor active, paused, and historical jobs.</p>
+        <a href="./admin-jobs.html" class="bg-teal-500 hover:bg-teal-400 text-white text-sm py-2 px-4 rounded">Open</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-lg font-semibold text-teal-400 mb-2">System Logs</h2>
+        <p class="text-slate-400 text-sm mb-4">View complete audit trail of actions.</p>
+        <a href="./admin-logs.html" class="bg-teal-500 hover:bg-teal-400 text-white text-sm py-2 px-4 rounded">Open</a>
+      </div>
+
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-lg font-semibold text-teal-400 mb-2">Site Settings</h2>
+        <p class="text-slate-400 text-sm mb-4">Control features, policies, and global settings.</p>
+        <a href="./admin-settings.html" class="bg-teal-500 hover:bg-teal-400 text-white text-sm py-2 px-4 rounded">Open</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto">
+    Admin mode: enabled. 👁️ BoxFsh sees all.
+  </footer>
+
+</body>
+</html>

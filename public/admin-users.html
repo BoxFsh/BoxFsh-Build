@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Moderation | BoxFsh</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="p-4 bg-slate-800 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">User Moderation</h1>
+    <a href="./admin.html" class="text-teal-400 hover:underline">← Back to Admin</a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8 space-y-8">
+
+    <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">All Registered Users</h2>
+
+      <!-- Placeholder Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="py-2">Username</th>
+              <th class="py-2">Email</th>
+              <th class="py-2">Status</th>
+              <th class="py-2">Flags</th>
+              <th class="py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-200">
+            <tr class="border-b border-slate-800 hover:bg-slate-700 transition">
+              <td class="py-2">CreativeChloe</td>
+              <td class="py-2">chloe@example.com</td>
+              <td class="py-2 text-green-400">Active</td>
+              <td class="py-2">0</td>
+              <td class="py-2 space-x-2">
+                <button class="bg-yellow-500 hover:bg-yellow-400 text-white px-3 py-1 rounded text-xs">Warn</button>
+                <button class="bg-red-500 hover:bg-red-400 text-white px-3 py-1 rounded text-xs">Ban</button>
+              </td>
+            </tr>
+            <tr class="border-b border-slate-800 hover:bg-slate-700 transition">
+              <td class="py-2">SketchySteve</td>
+              <td class="py-2">steve@sketch.com</td>
+              <td class="py-2 text-red-400">Flagged</td>
+              <td class="py-2">2</td>
+              <td class="py-2 space-x-2">
+                <button class="bg-yellow-500 hover:bg-yellow-400 text-white px-3 py-1 rounded text-xs">Warn</button>
+                <button class="bg-red-500 hover:bg-red-400 text-white px-3 py-1 rounded text-xs">Ban</button>
+              </td>
+            </tr>
+            <!-- Add more user rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-slate-400 text-center text-sm p-4 mt-auto">
+    Moderator tools active. Keep the pond clean. 🐟🧼
+  </footer>
+
+</body>
+</html>
