@@ -4,8 +4,8 @@
   "description": "Official build for the BoxFsh platform",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npx tailwindcss -i ./src/styles/input.css -o ./styles.css --watch\" \"npx live-server --open=index.html\"",
-    "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./styles.css --minify"
+  "dev": "concurrently \"npx tailwindcss -i ./src/styles/input.css -o ./styles.css --watch\" \"npx live-server --open=./index.html --port=5500\"",
+  "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./styles.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
