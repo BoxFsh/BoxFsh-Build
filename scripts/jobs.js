@@ -55,29 +55,36 @@
     msWrap.appendChild(li);
   });
 
-  // Tabs
-  const panels = $(`.tab-panel`, true);
-const tabsBar = document.querySelector('[data-tab="overview"]')?.parentElement; // the button row
+  // --- TABS (bulletproof global listener) ---
+(() => {
+  const panels = document.querySelectorAll('.tab-panel');
 
-const showTab = (name) => {
-  panels.forEach(p => p.classList.toggle("hidden", p.getAttribute("data-panel") !== name));
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    const active = b.getAttribute("data-tab") === name;
-    b.classList.toggle("bg-slate-900", active);
-    b.classList.toggle("hover:bg-slate-900", !active);
-    b.setAttribute("aria-selected", active ? "true" : "false");
+  const showTab = (name) => {
+    panels.forEach(p => {
+      const isActive = p.getAttribute('data-panel') === name;
+      p.classList.toggle('hidden', !isActive);
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      const active = b.getAttribute('data-tab') === name;
+      b.classList.toggle('bg-slate-900', active);
+      b.classList.toggle('hover:bg-slate-900', !active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  };
+
+  // Global delegate: any .tab-btn click anywhere
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    e.preventDefault(); // keep it from doing anything funky
+    const target = btn.getAttribute('data-tab');
+    if (target) showTab(target);
   });
-};
 
-tabsBar?.addEventListener("click", (e) => {
-  const btn = e.target.closest(".tab-btn");
-  if (!btn) return;
-  const target = btn.getAttribute("data-tab");
-  if (!target) return;
-  showTab(target);
-});
-
-showTab("overview");
+  // Default open
+  showTab('overview');
+})();
 
 
   // Files (lock until complete)
@@ -131,48 +138,56 @@ showTab("overview");
     input.value = "";
   });
 
-  // Completion checkbox enables button
-  const confirmScope = $("#confirm-scope");
-const completeBtn = $("#btn-complete");
-const syncCompleteBtn = () => {
-  completeBtn.disabled = !confirmScope.checked;
-};
+  // --- COMPLETE TOGGLE (stubborn-proof) ---
+(() => {
+  const confirmScope = document.getElementById('confirm-scope');
+  const completeBtn = document.getElementById('btn-complete');
+  if (!confirmScope || !completeBtn) return;
 
-// react to both change and input (covers all browsers/label clicks)
-confirmScope.addEventListener("change", syncCompleteBtn);
-confirmScope.addEventListener("input", syncCompleteBtn);
-// run once on load
-syncCompleteBtn();
+  const sync = () => {
+    completeBtn.disabled = !confirmScope.checked;
+  };
 
-completeBtn.addEventListener("click", () => {
-  // Demo: flip status to complete...
+  // cover all bases (checkbox via label, keyboard, etc.)
+  ['change', 'input', 'click'].forEach(evt =>
+    confirmScope.addEventListener(evt, sync)
+  );
 
-    data.status = "complete";
-    const dot = document.createElement("span");
-    dot.className = "h-2.5 w-2.5 rounded-full bg-emerald-400";
-    const js = $("#job-status");
-    js.innerHTML = "";
-    js.append(dot, document.createTextNode(" Complete"));
+  // run once on load
+  sync();
+
+  completeBtn.addEventListener('click', () => {
+    // Flip to complete
+    const jobStatus = document.getElementById('job-status');
+    if (jobStatus) {
+      jobStatus.innerHTML = '';
+      const dot = document.createElement('span');
+      dot.className = 'h-2.5 w-2.5 rounded-full bg-emerald-400';
+      jobStatus.append(dot, document.createTextNode(' Complete'));
+    }
 
     // Unlock files visually
-    $("#file-lock-banner").classList.add("hidden");
-    fileList.querySelectorAll("button").forEach(b => {
-      b.textContent = "Download";
-      b.classList.remove("opacity-50", "cursor-not-allowed");
-      b.classList.add("hover:bg-slate-800");
-      b.removeAttribute("title");
+    const lockBanner = document.getElementById('file-lock-banner');
+    lockBanner && lockBanner.classList.add('hidden');
+    document.querySelectorAll('#file-list button').forEach(b => {
+      b.textContent = 'Download';
+      b.classList.remove('opacity-50', 'cursor-not-allowed');
+      b.classList.add('hover:bg-slate-800');
+      b.removeAttribute('title');
     });
 
     // Mark final milestone done if present
-    const ms = document.querySelectorAll("#milestones li");
+    const ms = document.querySelectorAll('#milestones li');
     if (ms.length) {
       const last = ms[ms.length - 1];
-      const dot = last.querySelector("span");
-      if (dot) dot.className = "h-2.5 w-2.5 rounded-full bg-emerald-400";
-      const label = last.querySelector("span + span");
-      if (label) label.className = "line-through text-slate-400";
+      const dot = last.querySelector('span');
+      if (dot) dot.className = 'h-2.5 w-2.5 rounded-full bg-emerald-400';
+      const label = last.querySelector('span + span');
+      if (label) label.className = 'line-through text-slate-400';
     }
   });
+})();
+
 
   // Visibility radio (demo only)
   document.querySelectorAll('input[name="vis"]').forEach(r => {
