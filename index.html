@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BoxFsh</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+  <!-- Header -->
+  <header class="w-full border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./index.html" class="text-xl font-bold tracking-wide">BOXFSH</a>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="./pages/listing.html" class="opacity-70 hover:opacity-100">Listings</a>
+        <a href="./pages/dashboard.html" class="opacity-70 hover:opacity-100">Dashboard</a>
+        <a href="./pages/canvas.html" class="opacity-70 hover:opacity-100">Canvas</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="max-w-6xl mx-auto px-4 py-16 grid gap-6">
+    <div class="text-center space-y-4">
+      <img src="./public/img/logo.png" alt="BoxFsh" class="mx-auto w-24 h-24 object-contain" onerror="this.style.display='none'">
+      <h1 class="text-4xl font-bold">Welcome to BoxFsh</h1>
+      <p class="opacity-80">Community-powered platform. Canvas is the star.</p>
+      <div class="flex items-center justify-center gap-3">
+        <a href="./pages/canvas.html" class="bf-btn-primary">Open Canvas</a>
+        <a href="./pages/listing.html" class="bf-btn-ghost">Browse Listings</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 py-8 opacity-70 text-xs">
+    © BoxFsh — All activity is logged and moderated.
+  </footer>
+
+  <script src="./scripts/ui.js" defer></script>
+</body>
+</html>

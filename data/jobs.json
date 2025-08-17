@@ -1,0 +1,29 @@
+[
+  {
+    "id": "bf-0001",
+    "type": "customer",
+    "title": "3D print a phone stand",
+    "summary": "Simple PLA stand with slight angle; small batch.",
+    "budget": "$40–60",
+    "deadline": "2025-09-20",
+    "tags": ["3D print", "PLA", "prototype"]
+  },
+  {
+    "id": "bf-0002",
+    "type": "designer",
+    "title": "CAD tweak for enclosure",
+    "summary": "Adjust tabs and vents on an existing STEP file.",
+    "budget": "$120–180",
+    "deadline": "2025-09-25",
+    "tags": ["CAD", "STEP", "enclosure"]
+  },
+  {
+    "id": "bf-0003",
+    "type": "producer",
+    "title": "SLA resin small parts",
+    "summary": "10–15 pieces, grey resin, high detail.",
+    "budget": "$200–300",
+    "deadline": "2025-10-01",
+    "tags": ["SLA", "resin", "batch"]
+  }
+]

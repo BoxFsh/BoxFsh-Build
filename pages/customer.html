@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Listing | BoxFsh</title>
-  <link href="./style.css" rel="stylesheet" />
+  <title>Customer Profile | BoxFsh</title>
+  <link rel="stylesheet" href="./style.css"  />
 </head>
 <body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col">
 
@@ -14,38 +14,39 @@
     <a href="./listings.html" class="text-teal-400 hover:underline">&#8592; Back to Listings</a>
   </header>
 
-  <!-- Job Content -->
+  <!-- Profile Section -->
   <main class="flex-grow container mx-auto px-4 py-10">
     <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 max-w-3xl mx-auto shadow-lg">
-      <h2 class="text-3xl font-bold text-teal-400 mb-2">Custom RPG Miniatures Needed</h2>
-      <p class="text-slate-400 mb-4">Posted by: Jessie Maker</p>
+      <!-- Avatar and Name -->
+      <div class="flex items-center space-x-4 mb-6">
+        <img src="https://via.placeholder.com/100" alt="Customer Avatar" class="rounded-full w-24 h-24 border border-slate-600" />
+        <div>
+          <h2 class="text-3xl font-bold text-teal-400">Jessie Maker</h2>
+          <p class="text-slate-400">Customer • Project Seeker</p>
+        </div>
+      </div>
 
-      <!-- Job Description -->
+      <!-- Bio -->
       <div class="mb-6">
-        <h3 class="text-xl font-semibold mb-2">Project Details</h3>
+        <h3 class="text-xl font-semibold mb-2">About</h3>
         <p class="text-slate-300">
-          I'm looking for a designer to help create 5 original tabletop miniatures based on my D&D party. Ideally, I'd like them print-ready (STL or OBJ) within 3 weeks. Characters range from classic knight to cursed forest druid.
+          I’m looking for skilled creatives to bring my project to life. Whether it's fantasy miniatures, costume props, or something weird and wonderful — I’m here to collaborate.
         </p>
       </div>
 
-      <!-- Requirements -->
+      <!-- Needs / Project Info -->
       <div class="mb-6">
-        <h3 class="text-xl font-semibold mb-2">Requirements</h3>
+        <h3 class="text-xl font-semibold mb-2">Looking For</h3>
         <ul class="list-disc list-inside text-slate-300">
-          <li>High-detail modeling for 28mm scale</li>
-          <li>Poses based on rough sketches provided</li>
-          <li>Files must be pre-supported for resin printing</li>
+          <li>Someone to design and print a set of custom RPG tokens</li>
+          <li>Quick turnaround (within 2 weeks)</li>
+          <li>Willing to collaborate on unusual projects</li>
         </ul>
       </div>
 
-      <!-- Budget + CTA -->
-      <div class="mb-6">
-        <h3 class="text-xl font-semibold mb-2">Budget</h3>
-        <p class="text-slate-400">Willing to spend up to <span class="text-white font-semibold">$150</span> for the full set</p>
-      </div>
-
+      <!-- Contact / CTA -->
       <button class="bg-teal-500 hover:bg-teal-400 text-white font-semibold py-2 px-4 rounded-xl transition w-full">
-        Submit Proposal
+        Send a Proposal
       </button>
     </div>
   </main>

@@ -1,0 +1,236 @@
+<!-- /pages/job.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Detail | BoxFsh</title>
+
+  <!-- Use your compiled Tailwind -->
+  <link href="../styles.css" rel="stylesheet" />
+  <link href="../style.css" rel="stylesheet" />
+
+  <!-- Meta for vibes -->
+  <meta name="theme-color" content="#0b1020" />
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-dvh">
+
+  <!-- Page shell -->
+  <div class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="text-sm text-slate-400">
+      <ol class="flex items-center gap-2">
+        <li><a href="../index.html" class="hover:text-white">Home</a></li>
+        <li>›</li>
+        <li><a href="./listings.html" class="hover:text-white">Listings</a></li>
+        <li>›</li>
+        <li class="text-slate-200">Job</li>
+      </ol>
+    </nav>
+
+    <!-- Header / Title Bar -->
+    <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <h1 id="job-title" class="text-2xl md:text-3xl font-semibold tracking-tight">Job Title</h1>
+        <p class="text-slate-400 mt-1">
+          <span id="job-id" class="font-mono bg-slate-800/70 px-2 py-0.5 rounded">J-000000</span>
+          <span class="mx-2">•</span>
+          <span id="job-status" class="inline-flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+            In Progress
+          </span>
+          <span class="mx-2">•</span>
+          <span id="job-visibility" class="inline-flex items-center gap-2">
+            <svg class="w-4 h-4 opacity-70" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+            Pro-Only
+          </span>
+        </p>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="flex flex-wrap items-center gap-2">
+        <a id="open-canvas" href="./canvas.html" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition">
+          Open in Canvas
+        </a>
+        <button id="btn-message" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+          Message
+        </button>
+        <button id="btn-request-quote" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+          Request Quote
+        </button>
+        <button id="btn-accept" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition">
+          Accept Job
+        </button>
+      </div>
+    </header>
+
+    <!-- Top row: Milestones + Sidebar summary -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Milestone tracker -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="rounded-2xl bg-slate-800/60 border border-slate-700 p-4">
+          <h2 class="text-lg font-semibold mb-3">Milestones</h2>
+          <ol id="milestones" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+            <!-- Filled by JS -->
+          </ol>
+        </div>
+
+        <!-- Tabs -->
+        <div class="rounded-2xl bg-slate-800/60 border border-slate-700">
+          <div class="flex flex-wrap gap-2 p-2 border-b border-slate-700">
+            <button type="button" data-tab="overview" class="tab-btn px-4 py-2 rounded-xl bg-slate-900">Overview</button>
+            <button type="button" data-tab="scope" class="tab-btn px-4 py-2 rounded-xl hover:bg-slate-900">Scope</button>
+            <button type="button" data-tab="files" class="tab-btn px-4 py-2 rounded-xl hover:bg-slate-900">Files</button>
+            <button type="button" data-tab="updates" class="tab-btn px-4 py-2 rounded-xl hover:bg-slate-900">Updates</button>
+            <button type="button" data-tab="canvas" class="tab-btn px-4 py-2 rounded-xl hover:bg-slate-900">Canvas</button>
+          </div>
+
+          <!-- Panels -->
+          <div class="p-4 space-y-4">
+            <!-- Overview -->
+            <div data-panel="overview" class="tab-panel space-y-3">
+              <div class="text-slate-300 leading-relaxed" id="job-summary">
+                <!-- Summary injected -->
+              </div>
+
+              <div class="rounded-xl bg-slate-900/60 border border-slate-700 p-4">
+                <h3 class="font-semibold mb-2">Trust & IP</h3>
+                <ul class="list-disc pl-5 text-slate-300 text-sm space-y-1">
+                  <li>Intellectual Property remains with the original creator unless explicitly transferred by agreement.</li>
+                  <li>Design files are locked until the job is marked complete.</li>
+                  <li>Visibility options: Public, Pro-Only, or Invite-Only.</li>
+                  <li>All activity is logged and available to admins for moderation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Scope -->
+            <div data-panel="scope" class="tab-panel hidden space-y-3">
+              <article id="job-scope" class="prose prose-invert max-w-none">
+                <!-- Scope injected -->
+              </article>
+            </div>
+
+            <!-- Files -->
+            <div data-panel="files" class="tab-panel hidden space-y-4">
+              <div id="file-lock-banner" class="hidden rounded-xl border border-amber-600 bg-amber-500/10 p-3 text-amber-200">
+                🔒 Files are locked until completion is confirmed. Previews may be blurred or watermarked.
+              </div>
+              <ul id="file-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <!-- Files injected -->
+              </ul>
+            </div>
+
+            <!-- Updates -->
+            <div data-panel="updates" class="tab-panel hidden space-y-4">
+              <ul id="updates-list" class="space-y-3">
+                <!-- Updates injected -->
+              </ul>
+              <div class="flex gap-2">
+                <input id="update-input" type="text" placeholder="Add a quick update…" class="flex-1 rounded-xl bg-slate-900 border border-slate-700 px-3 py-2" />
+                <button id="update-add" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500">Post</button>
+              </div>
+              <p class="text-xs text-slate-400">Timestamps are auto-added. Comments are simple for now; full threads happen in Canvas.</p>
+            </div>
+
+            <!-- Canvas -->
+            <div data-panel="canvas" class="tab-panel hidden space-y-3">
+              <p class="text-slate-300">Jump into the Canvas to collaborate, comment, and move milestones. Files remain locked here until completion.</p>
+              <a id="open-canvas-cta" href="./canvas.html" class="inline-block px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500">Open in Canvas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="space-y-4">
+        <!-- Quick facts -->
+        <div class="rounded-2xl bg-slate-800/60 border border-slate-700 p-4 space-y-2">
+          <h2 class="text-lg font-semibold">Job Facts</h2>
+          <dl class="grid grid-cols-2 gap-x-4 gap-y-2 text-slate-300">
+            <dt class="text-slate-400">Budget</dt>
+            <dd id="job-budget">—</dd>
+
+            <dt class="text-slate-400">Created</dt>
+            <dd id="job-created">—</dd>
+
+            <dt class="text-slate-400">Due</dt>
+            <dd id="job-due">—</dd>
+
+            <dt class="text-slate-400">Category</dt>
+            <dd id="job-category">—</dd>
+          </dl>
+        </div>
+
+        <!-- Visibility control (UI only right now) -->
+        <div class="rounded-2xl bg-slate-800/60 border border-slate-700 p-4 space-y-3">
+          <h3 class="font-semibold">Visibility</h3>
+          <div class="flex flex-col gap-2">
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="vis" value="public" class="accent-indigo-500"> Public
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="vis" value="pro" class="accent-indigo-500" checked> Pro-Only
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="vis" value="invite" class="accent-indigo-500"> Invite-Only
+            </label>
+          </div>
+          <p class="text-xs text-slate-400">Changing this here is just a demo for now.</p>
+        </div>
+
+        <!-- Completion / Dispute note -->
+        <div class="rounded-2xl bg-slate-800/60 border border-slate-700 p-4 space-y-3">
+          <h3 class="font-semibold">Completion</h3>
+          <label class="flex items-start gap-2 text-sm">
+            <input id="confirm-scope" type="checkbox" class="mt-1 accent-emerald-500">
+            <span>By marking complete, both parties confirm the original agreed scope was delivered. This underpins dispute resolution.</span>
+          </label>
+          <button type="button" id="btn-complete" class="w-full mt-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40" disabled>Mark as Complete</button><button type="button" id="btn-complete" class="w-full mt-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40" disabled>Mark as Complete</button>
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <!-- Demo data: no names, no fake profiles -->
+  <script type="application/json" id="job-data">
+  {
+    "id": "J-001527",
+    "title": "Compact Costume Accessory – Lightweight Clip System",
+    "status": "in-progress",
+    "visibility": "pro",
+    "budget": 120,
+    "created": "2025-08-15",
+    "due": "2025-08-24",
+    "category": "Product Design",
+    "summary": "Lightweight clip system for a wearable prop. Priorities: small footprint, easy print orientation, and robust spring action.",
+    "scope": [
+      "Design a two-part clip that snaps securely and releases with low effort.",
+      "Target material: PETG or ASA; avoid brittle geometries.",
+      "No supports in primary orientation if possible; max 0.2 mm layer height.",
+      "Tolerances: hinge pin Ø2.5 mm ±0.05; snap fit clearance 0.25–0.35 mm."
+    ],
+    "milestones": [
+      {"label": "Brief", "done": true},
+      {"label": "Concept", "done": true},
+      {"label": "Prototype", "done": false},
+      {"label": "Finalize", "done": false}
+    ],
+    "filesLocked": true,
+    "files": [
+      {"name": "concept-v1.glb", "type": "3D", "size": "1.1 MB", "preview": true},
+      {"name": "clip-body-v2.stl", "type": "STL", "size": "0.6 MB", "preview": true},
+      {"name": "assembly-notes.pdf", "type": "PDF", "size": "120 KB", "preview": false}
+    ],
+    "updates": [
+      {"t": "2025-08-16 10:12", "m": "Initial sizing validated on print. Tweak hinge tolerance."},
+      {"t": "2025-08-17 09:02", "m": "Spring stiffness ok with PETG; testing ASA next."}
+    ]
+  }
+  </script>
+
+  <!-- Page script -->
+  <script src="../scripts/job.js" defer></script>
+</body>
+</html>

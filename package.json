@@ -1,15 +1,13 @@
 {
   "name": "boxfsh-build",
   "version": "1.0.0",
-  "description": "Official build for the BoxFsh platform",
   "private": true,
   "scripts": {
-  "dev": "concurrently \"npx tailwindcss -i ./src/styles/input.css -o ./styles.css --watch\" \"npx live-server --open=./index.html --port=5500\"",
-  "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./styles.css --minify"
+    "dev": "npx tailwindcss -i ./src/styles/input.css -o ./styles.css --watch",
+    "build:css": "npx tailwindcss -i ./src/styles/input.css -o ./styles.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
-    "concurrently": "^8.2.2",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.10"
   }

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Canvas | BoxFsh</title>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css"/>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen">
-  <!-- Header -->
   <header class="w-full border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="../index.html" class="text-xl font-bold tracking-wide">BOXFSH</a>
@@ -21,9 +20,7 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-12 gap-4">
-    <!-- Left: main -->
     <section class="col-span-12 lg:col-span-9 space-y-4">
-      <!-- Milestones -->
       <div class="bf-card p-3">
         <div class="flex items-center justify-between gap-2 text-xs">
           <div class="flex items-center gap-2">
@@ -36,7 +33,6 @@
         </div>
       </div>
 
-      <!-- Tabs -->
       <div class="bf-card">
         <div class="flex flex-wrap items-center gap-2 border-b border-slate-800 p-2">
           <button data-tab="tab-canvas" class="tab-btn active px-3 py-2 rounded-lg bg-slate-800 border border-slate-700">Canvas</button>
@@ -45,22 +41,20 @@
           <button data-tab="tab-scope"  class="tab-btn px-3 py-2 rounded-lg hover:bg-slate-800 border border-slate-700/50">Scope</button>
         </div>
 
-        <!-- Canvas tab -->
         <div id="tab-canvas" class="tab-panel p-3 grid grid-cols-12 gap-3">
-          <!-- Tool Dock -->
           <aside class="col-span-12 md:col-span-3 space-y-3">
             <div class="bf-card p-3">
               <div class="font-semibold mb-2">Tools</div>
               <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" class="tool-toggle" data-target="#sketchpad" checked />
+                <input type="checkbox" class="tool-toggle" data-target="#sketchpad" checked>
                 <span>Sketchpad (placeholder)</span>
               </label>
               <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" class="tool-toggle" data-target="#viewer3d" />
+                <input type="checkbox" class="tool-toggle" data-target="#viewer3d">
                 <span>3D Viewer (placeholder)</span>
               </label>
               <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" class="tool-toggle" data-target="#notes" />
+                <input type="checkbox" class="tool-toggle" data-target="#notes">
                 <span>Notes (sticky)</span>
               </label>
             </div>
@@ -69,11 +63,10 @@
               <div class="font-semibold mb-2">Project Actions</div>
               <button class="w-full mb-2 bf-btn-primary">Request Review</button>
               <button class="w-full bf-btn-ghost">Flag Issue</button>
-              <button onclick="bfToast && bfToast('Saved!')" class="w-full bf-btn-primary mt-2">Test Toast</button>
+              <button onclick="bfToast('Saved!')" class="w-full bf-btn-primary mt-2">Test Toast</button>
             </div>
           </aside>
 
-          <!-- Work Area -->
           <div class="col-span-12 md:col-span-9 space-y-3">
             <div id="file-lock" class="rounded-lg border border-amber-700/40 bg-amber-900/20 p-3 text-amber-200 text-sm">
               🔒 Files are locked until the job is marked complete. Previews may be watermarked.
@@ -93,20 +86,18 @@
           </div>
         </div>
 
-        <!-- Chat tab -->
         <div id="tab-chat" class="tab-panel hidden p-3">
           <div class="bf-card p-3 h-64 flex flex-col">
             <div class="flex-1 overflow-y-auto space-y-2 pr-1">
               <div class="text-xs opacity-70">No messages yet.</div>
             </div>
             <div class="mt-3 flex items-center gap-2">
-              <input class="bf-input" placeholder="Type a message..."/>
+              <input class="bf-input" placeholder="Type a message...">
               <button class="bf-btn-primary">Send</button>
             </div>
           </div>
         </div>
 
-        <!-- Files tab -->
         <div id="tab-files" class="tab-panel hidden p-3">
           <div class="bf-card p-3">
             <div class="text-sm opacity-80 mb-2">Locked until completion.</div>
@@ -118,20 +109,18 @@
           </div>
         </div>
 
-        <!-- Scope tab -->
         <div id="tab-scope" class="tab-panel hidden p-3">
           <div class="bf-card p-3 space-y-2 text-sm">
             <div class="font-semibold">Job Scope</div>
             <p class="opacity-80">Imported after job acceptance. Changes require both parties to re-confirm.</p>
             <label class="flex items-center gap-2 mt-2 text-xs opacity-80">
-              <input type="checkbox" /> I confirm I’ve read and accept the agreed scope.
+              <input type="checkbox"> I confirm I’ve read and accept the agreed scope.
             </label>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Right: comments / activity -->
     <aside class="col-span-12 lg:col-span-3 space-y-4">
       <div class="bf-card p-3">
         <div class="font-semibold mb-2">Comment Log</div>
@@ -139,7 +128,7 @@
           <div class="opacity-70">No comments yet.</div>
         </div>
         <div class="mt-3 flex items-center gap-2">
-          <input id="comment-input" class="bf-input" placeholder="Add a comment..."/>
+          <input id="comment-input" class="bf-input" placeholder="Add a comment...">
           <button id="comment-add" class="bf-btn-ghost">Add</button>
         </div>
       </div>
@@ -160,13 +149,7 @@
     © BoxFsh — All activity is logged and moderated.
   </footer>
 
-  <!-- UI kit (module) -->
-  <script type="module">
-    import { toast as _toast } from "../scripts/ui.js";
-    window.bfToast = _toast; // make a simple global for now
-  </script>
-
-  <!-- Canvas logic -->
+  <script src="../scripts/ui.js" defer></script>
   <script src="../scripts/canvas.js" defer></script>
 </body>
 </html>

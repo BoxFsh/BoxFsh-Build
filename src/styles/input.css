@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* UI kit helpers */
 @layer components {
   .bf-card { @apply rounded-xl border border-slate-800 bg-slate-950/60; }
   .bf-btn { @apply inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-medium transition; }
   .bf-btn-primary { @apply bf-btn bg-emerald-600 hover:bg-emerald-500; }
   .bf-btn-ghost { @apply bf-btn bg-slate-800/60 hover:bg-slate-800/90 border border-slate-700; }
   .bf-input { @apply w-full rounded bg-slate-950/60 border border-slate-800 p-2 text-sm; }
+}
+@layer utilities {
+  .bf-bg-gradient { @apply bg-gradient-to-r from-emerald-500 to-emerald-600; }
+  .bf-text-gradient { @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-600; }
+  .bf-shadow { @apply shadow-lg shadow-slate-900/50; }
+  .bf-shadow-hover:hover { @apply shadow-xl shadow-slate-900/70; }
 }

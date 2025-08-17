@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listings | BoxFsh</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+  <header class="w-full border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="../index.html" class="text-xl font-bold tracking-wide">BOXFSH</a>
+      <nav class="flex items-center gap-4 text-sm">
+        <span class="px-3 py-1 rounded-full bg-emerald-600/20 text-emerald-300 border border-emerald-700/30">Listings</span>
+        <a href="./dashboard.html" class="opacity-70 hover:opacity-100">Dashboard</a>
+        <a href="./canvas.html" class="opacity-70 hover:opacity-100">Canvas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6 space-y-4">
+    <!-- Filters -->
+    <section class="bf-card p-3">
+      <div class="flex flex-col md:flex-row md:items-center gap-3">
+        <input id="search" class="bf-input md:flex-1" placeholder="Search jobs… (title, tags)"/>
+        <div class="flex items-center gap-2 text-sm">
+          <button data-filter="all" class="bf-btn-ghost px-3 py-2 rounded-lg border border-slate-700">All</button>
+          <button data-filter="customer" class="bf-btn-ghost px-3 py-2 rounded-lg border border-slate-700">Customer</button>
+          <button data-filter="designer" class="bf-btn-ghost px-3 py-2 rounded-lg border border-slate-700">Designer</button>
+          <button data-filter="producer" class="bf-btn-ghost px-3 py-2 rounded-lg border border-slate-700">Producer</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- cards injected by JS -->
+    </section>
+
+    <!-- Empty / error states -->
+    <template id="tpl-empty">
+      <div class="col-span-full text-center opacity-70 text-sm">No results found.</div>
+    </template>
+    <template id="tpl-error">
+      <div class="col-span-full text-center text-rose-300 text-sm">Couldn’t load jobs.json</div>
+    </template>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 py-8 opacity-70 text-xs">
+    © BoxFsh — All activity is logged and moderated.
+  </footer>
+
+  <script src="../scripts/ui.js" defer></script>
+  <script src="../scripts/listing.js" defer></script>
+</body>
+</html>
